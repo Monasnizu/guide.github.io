@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Производственный туризм — Гайд для маркетологов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1714;
+    --paper: #f4f0e8;
+    --rust: #c94f2a;
+    --rust-dark: #a33d1f;
+    --steel: #3d4a52;
+    --fog: #e2ddd3;
+    --muted: #7a746b;
+    --accent: #e8a832;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Onest', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.04) 39px, rgba(255,255,255,.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.04) 39px, rgba(255,255,255,.04) 40px);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rust);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 40px;
+    width: fit-content;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 6vw, 80px);
+    line-height: .95;
+    color: #fff;
+    margin-bottom: 32px;
+    letter-spacing: .01em;
+  }
+
+  .hero h1 span {
+    color: var(--rust);
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: rgba(255,255,255,.65);
+    max-width: 420px;
+    margin-bottom: 48px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--rust);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 36px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    display: inline-block;
+    letter-spacing: .02em;
+  }
+
+  .btn-primary:hover { background: var(--rust-dark); transform: translateY(-1px); }
+
+  .hero-price-note {
+    color: rgba(255,255,255,.45);
+    font-size: 14px;
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+  }
+
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .guide-cover {
+    background: var(--paper);
+    padding: 40px 36px;
+    position: relative;
+    box-shadow: 24px 24px 0 rgba(201,79,42,.25);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}
+  }
+
+  .cover-stripe {
+    height: 6px;
+    background: var(--rust);
+    margin-bottom: 28px;
+  }
+
+  .cover-eyebrow {
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .cover-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: .02em;
+  }
+
+  .cover-title span { color: var(--rust); }
+
+  .cover-sub {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .cover-divider {
+    border: none;
+    border-top: 1px solid var(--fog);
+    margin-bottom: 20px;
+  }
+
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .cover-meta strong { color: var(--rust); font-weight: 600; }
+
+  .cover-badge {
+    position: absolute;
+    top: -16px; right: -16px;
+    width: 72px; height: 72px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--ink);
+    line-height: 1;
+    box-shadow: 0 4px 16px rgba(232,168,50,.4);
+  }
+
+  .cover-badge small { font-family: var(--font-body); font-size: 10px; font-weight: 600; }
+
+  /* SECTION */
+  section { padding: 100px 0; }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: .02em;
+    margin-bottom: 20px;
+  }
+
+  .section-lead {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 560px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* PAIN SECTION */
+  .pain { background: var(--ink); color: #fff; }
+
+  .pain .section-title { color: #fff; }
+  .pain .section-label { color: var(--rust); }
+  .pain .section-lead { color: rgba(255,255,255,.55); }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .pain-card {
+    background: rgba(255,255,255,.04);
+    padding: 36px 32px;
+    border-left: 3px solid transparent;
+    transition: border-color .2s, background .2s;
+  }
+
+  .pain-card:hover {
+    border-color: var(--rust);
+    background: rgba(255,255,255,.07);
+  }
+
+  .pain-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: rgba(255,255,255,.08);
+    margin-bottom: -8px;
+  }
+
+  .pain-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .pain-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* WHAT'S INSIDE */
+  .inside { background: var(--fog); }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .toc-item {
+    background: var(--paper);
+    padding: 28px 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: transform .15s;
+  }
+
+  .toc-item:hover { transform: translateX(4px); }
+
+  .toc-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--rust);
+    line-height: 1;
+    min-width: 36px;
+  }
+
+  .toc-item h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .toc-item p {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* BONUSES */
+  .bonuses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .bonus-card {
+    border: 1.5px solid var(--fog);
+    padding: 28px 24px;
+    transition: border-color .2s;
+  }
+
+  .bonus-card:hover { border-color: var(--rust); }
+
+  .bonus-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .bonus-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .bonus-card p {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* FOR WHO */
+  .forwhom { background: var(--ink); color: #fff; }
+  .forwhom .section-title { color: #fff; }
+  .forwhom .section-label { color: var(--rust); }
+
+  .forwhom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .forwhom-card {
+    background: rgba(255,255,255,.05);
+    padding: 36px 28px;
+  }
+
+  .forwhom-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .check-list li {
+    font-size: 14px;
+    color: rgba(255,255,255,.6);
+    font-weight: 300;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-size: 12px;
+  }
+
+  /* RESULT */
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .result-card {
+    background: var(--ink);
+    padding: 40px 32px;
+    color: #fff;
+  }
+
+  .result-num {
+    font-family: var(--font-display);
+    font-size: 56px;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .result-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .result-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+    font-weight: 300;
+  }
+
+  /* AUTHOR */
+  .author-block {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 64px;
+    padding: 48px;
+    border: 1.5px solid var(--fog);
+  }
+
+  .author-avatar {
+    width: 120px;
+    height: 120px;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--rust);
+    flex-shrink: 0;
+  }
+
+  .author-label {
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .author-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .author-bio {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  /* BUY */
+  .buy { background: var(--rust); }
+
+  .buy .section-title { color: #fff; }
+
+  .buy-box {
+    background: var(--ink);
+    padding: 56px;
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .buy-includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .buy-includes li {
+    color: rgba(255,255,255,.75);
+    font-size: 15px;
+    font-weight: 300;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .buy-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .buy-guarantee {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    margin-top: 16px;
+  }
+
+  .price-block {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .price-old {
+    font-size: 16px;
+    color: rgba(255,255,255,.35);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+
+  .price-main {
+    font-family: var(--font-display);
+    font-size: 72px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-cur {
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 28px;
+  }
+
+  .btn-buy {
+    display: block;
+    background: var(--rust);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 18px 40px;
+    text-decoration: none;
+    text-align: center;
+    transition: background .2s;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-buy:hover { background: var(--rust-dark); }
+
+  /* FAQ */
+  .faq-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .faq-item {
+    background: var(--fog);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 24px 32px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: background .15s;
+  }
+
+  .faq-q:hover { background: var(--paper); }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 22px;
+    color: var(--rust);
+    flex-shrink: 0;
+    transition: transform .2s;
+  }
+
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+
+  .faq-item.open .faq-a { max-height: 300px; }
+
+  .faq-a-inner {
+    padding: 0 32px 24px;
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,.4);
+    text-align: center;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 28px; }
+    .pain-grid, .toc-grid, .result-grid, .forwhom-grid { grid-template-columns: 1fr; }
+    .bonuses-grid { grid-template-columns: 1fr 1fr; }
+    .buy-box { grid-template-columns: 1fr; gap: 40px; }
+    .author-block { grid-template-columns: 1fr; }
+    .container { padding: 0 24px; }
+    section { padding: 64px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Новый гайд · 2025</span>
+    <h1>Производственный<br>туризм —<span>ваш скрытый маркетинговый актив</span></h1>
+    <p class="hero-desc">Практическое руководство для маркетологов промышленных компаний. Превратите экскурсию на завод в инструмент генерации лидов, доверия и медиаохвата.</p>
+    <div class="hero-cta">
+      <a href="#buy" class="btn-primary">Получить гайд бесплатно</a>
+      <span class="hero-price-note">PDF · 8 шаблонов · Без оплаты</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="guide-cover">
+        <div class="cover-badge" style="font-size:16px">БЕСП-<br>ЛАТНО<small></small></div>
+        <div class="cover-stripe"></div>
+        <div class="cover-eyebrow">Практический гайд</div>
+        <div class="cover-title">Производственный<br><span>туризм</span></div>
+        <div class="cover-sub">Маркетинг для промышленных компаний</div>
+        <hr class="cover-divider">
+        <div class="cover-meta">
+          <span>55 страниц</span>
+          <span>8 шаблонов</span>
+          <span><strong>PDF</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="container">
+    <div class="section-label">Узнаёте себя?</div>
+    <h2 class="section-title">Маркетинг производства — это сложно</h2>
+    <p class="section-lead">Каждый день вы сталкиваетесь с задачами, для которых нет готовых решений из учебников по digital-маркетингу.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <h3>Длинный цикл сделки</h3>
+        <p>B2B-клиенты принимают решения месяцами. Никакой рекламой не убедить — нужно живое доверие.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <h3>«Нам нечем удивить»</h3>
+        <p>Производство кажется скучным изнутри. Но снаружи — это один из самых мощных wow-контентов.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <h3>Контент заканчивается</h3>
+        <p>Технические характеристики, новости компании — и всё. Завод стоит рядом, но не используется как источник историй.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">04</div>
+        <h3>Визиты клиентов — хаос</h3>
+        <p>Экскурсии проводятся случайно, без сценария и без follow-up. Потенциальный лид уходит без следующего шага.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">05</div>
+        <h3>PR без бюджета</h3>
+        <p>Нет денег на пресс-туры. Журналисты не пишут сами. Отраслевые СМИ молчат о вашем заводе.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">06</div>
+        <h3>Конкуренты ближе</h3>
+        <p>Пока вы ищете новые каналы, конкурент уже показывает клиенту своё производство. Лично. С чаем.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <div class="container">
+    <div class="section-label">Содержание гайда</div>
+    <h2 class="section-title">55 страниц конкретики без воды</h2>
+    <p class="section-lead">Пять разделов с готовыми алгоритмами — от первого аудита производства до автоматической воронки после экскурсии.</p>
+    <div class="toc-grid">
+      <div class="toc-item">
+        <div class="toc-num">1</div>
+        <div>
+          <h3>Зачем это нужно вашей компании</h3>
+          <p>Бизнес-задачи, аудитории, метрики. Как считать ROI экскурсии в деньгах — с примерами KPI.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">2</div>
+        <div>
+          <h3>Подготовка программы экскурсии</h3>
+          <p>Аудит производства, выбор маршрута, 5 форматов туров, готовый сценарий и скрипт для гида.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">3</div>
+        <div>
+          <h3>Упаковка и продвижение</h3>
+          <p>Что снимать, контент-план на 30 дней, шаблон пресс-релиза, интеграция в воронку CRM.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">4</div>
+        <div>
+          <h3>Онлайн-экскурсия</h3>
+          <p>Форматы для удалённых клиентов: прямой эфир, 360°-тур, сценарий без оператора и продюсера.</p>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">5</div>
+        <div>
+          <h3>Монетизация и масштабирование</h3>
+          <p>Когда сделать тур платным, бизнес-модели, найм гидов, создание туристического бренда завода.</p>
+        </div>
+      </div>
+      <div class="toc-item" style="background: var(--ink); color: #fff;">
+        <div class="toc-num" style="color: var(--rust);">+8</div>
+        <div>
+          <h3 style="color:#fff;">Шаблоны и чек-листы</h3>
+          <p style="color:rgba(255,255,255,.5);">Всё готово к использованию: сценарий, письма, контент-план, таблица KPI. Вставьте своё имя — и запускайте.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUSES -->
+<section>
+  <div class="container">
+    <div class="section-label">Бонусы</div>
+    <h2 class="section-title">8 шаблонов, готовых к работе</h2>
+    <p class="section-lead">Не нужно начинать с чистого листа. Каждый шаблон адаптируется под вашу компанию за 20 минут.</p>
+    <div class="bonuses-grid">
+      <div class="bonus-card">
+        <span class="bonus-icon">☑</span>
+        <h3>Чек-лист подготовки</h3>
+        <p>12 вопросов перед первой экскурсией. Ничего не забудете.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📋</span>
+        <h3>Сценарий экскурсии</h3>
+        <p>Полная структура с точками вовлечения и паузами для вопросов.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">💬</span>
+        <h3>Скрипт ответов</h3>
+        <p>На 15 типичных вопросов гостей — включая неудобные.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📅</span>
+        <h3>Контент-план на 30 дней</h3>
+        <p>Что публиковать после экскурсии, чтобы контент работал месяц.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📰</span>
+        <h3>Шаблон пресс-релиза</h3>
+        <p>Для привлечения журналистов на пресс-тур. Готов к рассылке.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">✉</span>
+        <h3>3 follow-up письма</h3>
+        <p>Цепочка после визита: от благодарности до коммерческого предложения.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📊</span>
+        <h3>Таблица KPI</h3>
+        <p>Как измерить эффект от программы и защитить бюджет перед руководством.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📡</span>
+        <h3>Список СМИ и каналов</h3>
+        <p>Отраслевые издания и Telegram-каналы, куда писать о вашем туре.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="forwhom">
+  <div class="container">
+    <div class="section-label">Для кого</div>
+    <h2 class="section-title">Гайд написан для вас, если...</h2>
+    <div class="forwhom-grid">
+      <div class="forwhom-card">
+        <h3>Маркетолог производства</h3>
+        <ul class="check-list">
+          <li>Ищете новые каналы без роста бюджета</li>
+          <li>Хотите инструмент для работы с входящими клиентами</li>
+          <li>Нужен контент, который отличает вас от конкурентов</li>
+          <li>Готовы запустить пилот за 2–3 недели</li>
+        </ul>
+      </div>
+      <div class="forwhom-card">
+        <h3>Директор по маркетингу</h3>
+        <ul class="check-list">
+          <li>Ищете стратегический актив с долгосрочным эффектом</li>
+          <li>Хотите усилить позиционирование бренда компании</li>
+          <li>Нужны аргументы для PR-программы перед советом</li>
+          <li>Интересует масштабирование на несколько площадок</li>
+        </ul>
+      </div>
+      <div class="forwhom-card">
+        <h3>Собственник / Коммерческий директор</h3>
+        <ul class="check-list">
+          <li>Устали объяснять партнёрам «что мы делаем»</li>
+          <li>Хотите превратить завод в точку притяжения</li>
+          <li>Рассматриваете туризм как дополнительную монетизацию</li>
+          <li>Нужна система, а не разовые экскурсии</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section>
+  <div class="container">
+    <div class="section-label">Результат</div>
+    <h2 class="section-title">Что изменится после внедрения</h2>
+    <p class="section-lead">Производственный туризм — это не разовая активность. Это система, которая работает на вас постоянно.</p>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="result-num">↑3x</div>
+        <h3>Доверие клиентов</h3>
+        <p>Живое посещение производства закрывает возражения лучше любой презентации или кейса.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-num">−30%</div>
+        <h3>Цикл сделки</h3>
+        <p>Клиент, побывавший на производстве, принимает решение быстрее. Это измеримо и воспроизводимо.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-num">∞</div>
+        <h3>Источник контента</h3>
+        <p>Одна экскурсия — это месяц публикаций: фото, видео, цитаты, статьи, email-рассылки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section>
+  <div class="container">
+    <div class="section-label">Автор</div>
+    <h2 class="section-title">Кто написал этот гайд</h2>
+    <div class="author-block">
+      <div class="author-avatar">АК</div>
+      <div>
+        <div class="author-label">Ведущий маркетолог · Warmex · Новосибирск</div>
+        <div class="author-name">Алина Кусаинова</div>
+        <p class="author-bio">Почти 5 лет в маркетинге производственной компании Warmex — единственного в России производителя «тёплых» дистанционных рамок Warmex PRO и Warmex PRIME. Компания также выпускает системы отделки для окон из ПВХ, ведёт контрактное производство и реализует собственные ПВХ и ПП-гранулы.</p>
+        <p class="author-bio" style="margin-top:14px">Производственный туризм — не теория. На двух площадках Warmex в Новосибирске уже работает живая программа экскурсий для партнёров и дилеров: технологи компании лично проводят туры и погружают гостей в специфику производства. Этот гайд написан изнутри действующего проекта — с реальными сценариями, ошибками и результатами.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUY -->
+<section class="buy" id="buy">
+  <div class="container">
+    <div class="section-label" style="color:rgba(255,255,255,.6)">Забрать гайд</div>
+    <h2 class="section-title">Бесплатно — просто оставьте email</h2>
+    <div class="buy-box">
+      <div>
+        <ul class="buy-includes">
+          <li>PDF-гайд, 55 страниц — опыт реального производственного проекта</li>
+          <li>8 готовых шаблонов (Notion + Google Docs)</li>
+          <li>Сценарий экскурсии и скрипт для технолога-гида</li>
+          <li>Контент-план на 30 дней после тура</li>
+          <li>3 follow-up письма для CRM-воронки</li>
+          <li>Список отраслевых СМИ и Telegram-каналов</li>
+          <li>Доступ к обновлениям гайда</li>
+        </ul>
+        <p class="buy-guarantee">Гайд основан на реальном опыте Warmex — двух производственных площадок в Новосибирске с действующей программой туризма для партнёров и дилеров.</p>
+      </div>
+      <div class="price-block">
+        <div style="color:rgba(255,255,255,.5);font-size:13px;margin-bottom:8px">Стоимость</div>
+        <div class="price-main" style="font-size:52px;margin-bottom:4px">0 ₽</div>
+        <div class="price-cur" style="margin-bottom:28px">Гайд распространяется бесплатно</div>
+        <input type="email" placeholder="Ваш email" style="display:block;width:100%;padding:14px 18px;font-family:var(--font-body);font-size:15px;border:none;margin-bottom:10px;background:rgba(255,255,255,.1);color:#fff;outline:none;" />
+        <a href="#" class="btn-buy">Получить гайд бесплатно</a>
+        <div style="color:rgba(255,255,255,.3);font-size:12px;margin-top:12px">Без спама. Только гайд и шаблоны.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="section-label">Вопросы и ответы</div>
+    <h2 class="section-title">Часто спрашивают</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Подойдёт ли гайд, если наше производство не туристическое?</button>
+        <div class="faq-a"><div class="faq-a-inner">Да. Гайд написан для промышленных B2B-компаний, а не туристических объектов. Методология работает для любого производства — от пищевого до металлообрабатывающего. Главное условие: есть что показать клиентам.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Сколько времени нужно на внедрение?</button>
+        <div class="faq-a"><div class="faq-a-inner">Первую экскурсию можно провести через 2–3 недели после изучения гайда. Полная система (с контентом, воронкой и PR) выстраивается за 1–2 месяца при 3–5 часах в неделю.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Нужен ли отдельный бюджет на производственный туризм?</button>
+        <div class="faq-a"><div class="faq-a-inner">На старте — нет. Большинство инструментов из гайда не требуют бюджета: сценарий, шаблоны, контент-план. Для видеосъёмки достаточно смартфона. Масштабирование уже потребует вложений, но раздел 5 гайда разбирает, как сделать программу самоокупаемой.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">В каком формате получу гайд?</button>
+        <div class="faq-a"><div class="faq-a-inner">PDF с интерактивным оглавлением — читается на любом устройстве. Шаблоны — в виде ссылок на Notion и Google Docs, которые вы скопируете в свой аккаунт и заполните.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Почему гайд бесплатный?</button>
+        <div class="faq-a"><div class="faq-a-inner">Производственный туризм — живая практика Warmex, а не теория. Мне важно поделиться реальным опытом с коллегами-маркетологами из производственных компаний. Бесплатный формат позволяет охватить больше людей, которым это действительно нужно.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="background: var(--ink); padding: 80px 0; text-align: center;">
+  <div class="container">
+    <h2 style="font-family: var(--font-display); font-size: clamp(32px,4vw,52px); color: #fff; margin-bottom: 16px;">Ваш завод — это контент.<br>Пора это использовать.</h2>
+    <p style="color: rgba(255,255,255,.5); font-size: 17px; font-weight: 300; margin-bottom: 40px;">Пока конкуренты тратят бюджет на рекламу, вы можете показать клиентам всё своими руками.</p>
+    <a href="#buy" class="btn-primary">Получить гайд бесплатно</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 · Производственный туризм: гайд для B2B-маркетологов · Все права защищены</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
